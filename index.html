@@ -8,12 +8,16 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   <style>
-    body {
+
+    body,
+    header {
       font-family: "Poppins", sans-serif;
       margin: 0;
       padding: 20px;
       background-color: #FFDBB5;
     }
+
+
     .container {
       display: flex;
       flex-wrap: wrap;
@@ -22,6 +26,12 @@
       margin: auto;
       padding: 20px;
       border-radius: 8px;
+    }
+
+    header.container {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
     }
     h1 {
       color: #603F26;
@@ -82,6 +92,11 @@
   </style>
 </head>
 <body>
+  <header class="container">
+    <h2>Maria Laura Isabella</h2>
+    <h2>NIM : 221011402163</h2>
+    <h2>Kelas : 05 TPLE 019 CS</h2>
+  </header>
   <div class="container">
     <div class="info">
       <h1>Metode Logika Fuzzy</h1>
@@ -108,6 +123,30 @@
     </div>
     </div>
   </div>
-  <script src="./app.js"></script>
+  <script>
+      document.getElementById('predictionForm').addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      const jumlah_kunjungan = document.getElementById('jumlah_kunjungan').value;
+      const kepuasan = document.getElementById('kepuasan').value;
+
+      const response = await fetch('/predict', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ jumlah_kunjungan, kepuasan }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        document.getElementById('result').style.display = 'block';
+        document.getElementById('prediksi').textContent = `Jumlah Polis: ${data.prediksi.toFixed(2)}`;
+        document.getElementById('kategori').textContent = `Kategori Penjualan: ${data.kategori}`;
+      } else {
+        alert('Gagal mendapatkan prediksi. Silakan coba lagi.');
+      }
+    });
+  </script>
 </body>
 </html>
