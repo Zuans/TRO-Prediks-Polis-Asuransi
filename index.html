@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prediksi Polis Asuransi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #FFDBB5;
+    }
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 1200px;
+      margin: auto;
+      padding: 20px;
+      border-radius: 8px;
+    }
+    h1 {
+      color: #603F26;
+    }
+    h2 {
+      color: #603F26;
+    }
+    form {
+      margin-top: 20px;
+    }
+    label {
+      font-weight: semibold;
+      display: block;
+      margin-bottom: 5px;
+    }
+    input {
+      width: calc(100% - 22px);
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+    button {
+      background-color: #603F26;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+      font-family: "Poppins", sans-serif;
+    }
+    button:hover {
+      background-color: #946847;
+    }
+    .result {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #fff;
+      border-radius: 4px;
+      color: #333;
+    }
+
+    .info {
+      flex: 1;
+      min-width: 600px;
+      margin-right: 3rem;
+    }
+    .form {
+      flex: 1;
+    }
+
+    p {
+      color: #6C4E31;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="info">
+      <h1>Metode Logika Fuzzy</h1>
+      <h2>Apa Itu Logika Fuzzy ?</h2>
+      <p>Logika fuzzy adalah metode komputasi untuk menangani data yang tidak pasti atau ambigu, dengan memperkenalkan derajat keanggotaan bernilai 0 hingga 1. Metode ini menggunakan fungsi keanggotaan untuk mengelompokkan data dan cocok untuk sistem kompleks seperti pengendalian, prediksi, dan pengambilan keputusan.</p>
+      <h2>Centre Of Gravity sebagai metode dalam defuzzifikasi</h2>
+      <p>Website ini menggunakan metode logika fuzzy dengan pendekatan Centre of Gravity (COG) untuk prediksi. COG menghitung titik keseimbangan dari output fuzzy untuk menghasilkan prediksi yang akurat. Metode ini fleksibel dalam menangani ketidakpastian data, sehingga memberikan hasil yang mendekati kenyataan.</p>
+    </div>
+    <div class="form">
+      <h1>Prediksi Polis Asuransi</h1>
+    <form id="predictionForm">
+      <label for="jumlah_kunjungan">Jumlah Kunjungan:</label>
+      <input type="number" id="jumlah_kunjungan" name="jumlah_kunjungan" required>
+
+      <label for="kepuasan">Tingkat Kepuasan (1–10):</label>
+      <input type="number" id="kepuasan" name="kepuasan" min="1" max="10" required>
+
+      <button type="submit">Prediksi</button>
+    </form>
+    <div id="result" class="result" style="display: none;">
+      <p><strong>Hasil Prediksi:</strong></p>
+      <p id="prediksi"></p>
+      <p id="kategori"></p>
+    </div>
+    </div>
+  </div>
+  <script src="./app.js"></script>
+</body>
+</html>
